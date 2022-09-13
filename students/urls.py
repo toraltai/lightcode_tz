@@ -9,5 +9,4 @@ r.register('info', StudentsListView)
 
 urlpatterns = [
     path('api/all_list/', include(r.urls)),
-    
 ]

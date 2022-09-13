@@ -11,11 +11,3 @@ class Students(models.Model):
 
     def __str__(self):
         return f'{self.name}'
-
-
-class Different(models.Model):
-    max_age = Students.objects.all().aggregate(Max('age'))
-    
-
-    def __str__(self):
-        return f'{self.max_age}'

@@ -1,4 +1,3 @@
-from typing import OrderedDict
 from rest_framework import viewsets, decorators, response
 from rest_framework.response import Response
 from .models import Students
@@ -22,6 +21,6 @@ class StudentsListView(viewsets.ModelViewSet):
     @decorators.action(detail=False)
     def count_list(self, request):
 
-        res = Students.objects.annotate(num_students=Count('age')).aggregate(num_students=filter('age','age__max'))
-        # return Response(res, many=True).data
-        return Response(StudentsSerializer(res, many=True).data)
+        res = Students.objects.all().count()
+        context = {"count":res}
+        return Response(context)
