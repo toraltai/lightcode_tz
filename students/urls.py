@@ -4,7 +4,8 @@ from .views import StudentsListView
 from rest_framework.routers import DefaultRouter
 
 r = DefaultRouter()
-r.register('students', StudentsListView)
+
+r.register('info', StudentsListView)
 
 urlpatterns = [
     path('api/all_list/', include(r.urls)),
